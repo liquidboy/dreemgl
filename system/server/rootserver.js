@@ -1,4 +1,4 @@
-/* DreemGL is a collaboration between Teeming Society & Samsung Electronics, sponsored by Samsung and others.
+﻿/* DreemGL is a collaboration between Teeming Society & Samsung Electronics, sponsored by Samsung and others.
    Copyright 2015-2016 Teeming Society. Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.
    You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing,
    software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -145,6 +145,7 @@ define.class(function(require){
 		sock.url = req.url
 		var mypath = req.url.slice(1)
 		var busserver
+        console.log(decodeURIComponent(mypath));
 		if(mypath) busserver = this.getComposition('$' + decodeURIComponent(mypath)).busserver
 		else busserver = this.busserver
 		busserver.addWebSocket(sock, req, this.binrpc_outgoing, this.binrpc_incoming)
@@ -180,7 +181,7 @@ define.class(function(require){
 		// lets delegate to
 		var host = req.headers.host
 		var requrl = req.url
-
+        console.log(requrl);
 		if(requrl.indexOf('/binrpc?') === 0){
 			var where = decodeURIComponent(requrl.slice(8))
 			if(req.method == 'POST'){

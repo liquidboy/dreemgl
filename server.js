@@ -1,4 +1,4 @@
-/* DreemGL is a collaboration between Teeming Society & Samsung Electronics, sponsored by Samsung and others.
+﻿/* DreemGL is a collaboration between Teeming Society & Samsung Electronics, sponsored by Samsung and others.
    Copyright 2015-2016 Teeming Society. Licensed under the Apache License, Version 2.0 (the "License"); You may not use this file except in compliance with the License.
    You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing,
    software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -54,7 +54,9 @@ function main(){
 			}
 			else args[lastkey] = arg
 		}
-	}
+    }
+    console.log("args" + args)
+    console.log(args)
 
 	if(args['-nomoni'] && args['-trace']){
 		var trace = require('$system/debug/trace')
@@ -76,7 +78,7 @@ function main(){
 		console.color('~bc~-writefile ~~ Allow server to write files to disk\n')
 		return process.exit(0)
 	}
-
+    console.log("define paths")
 	// our default pathmap
 	// NOTE: if you change this, also update /docs/guides/dreem_in_10/README.md
 	define.paths = {
@@ -144,7 +146,7 @@ function main(){
 
 	define.$platform = 'headless'
 
-	if (args['-jsduckgen']) {
+    if (args['-jsduckgen']) {
 		define.$platform = 'nodejs'
 		for(var key in define.paths){
 			define['$'+key] = define.paths[key]
@@ -153,19 +155,21 @@ function main(){
 		var DocBuilder = require('$system/server/docbuilder')
 		new DocBuilder(args)
 
-	} else if(args['-nodegl']){
+    } else if (args['-nodegl']) {
 		// lets do an async require on our UI
 		define.$platform = 'nodegl'
 		var NodeGL = require('$system/platform/nodegl/bootnodegl')
 		new NodeGL(args)
 	}
-	else if(args['-nomoni']){
+    else if (args['-nomoni']) {
 		if(args['-sync']){
 			var GitSync = require('$system/server/gitsync')
 
 			new GitSync(args)
 		}
-		else if(args['-headless']){
+        else if (args['-headless']) {
+            console.log("-headless")
+            console.log("jose a")
 				var composition = args['-headless'];
 				define.$platform = 'headless'
 				define.$environment = 'headless' // Otherwise it is nodejs
@@ -187,7 +191,7 @@ function main(){
 			var BootHeadless = require('$system/platform/headless/bootheadless')
 			new BootHeadless(args, composition);
 		}
-		else if(args['-dali']){
+        else if (args['-dali']) {
 			// Place the dali/nodejs package at the root of dreemgl
 
 				var composition = args['-dali'];
@@ -213,18 +217,20 @@ function main(){
 				var BootDali = require('$system/platform/dali/bootdali')
 				new BootDali(args, composition);
 		}
-		else if(args['-test']){
+        else if (args['-test']) {
 			require('$system/server/test.js')
 
 		}
-		else{
+        else {
+            console.log("rootserver")
 			define.$platform = 'nodejs'
 			var RootServer = require('$system/server/rootserver')
 			new RootServer(args)
 		}
 
 	}
-	else{
+    else {
+        console.log("runmonitor")
 		var RunMonitor = require('$system/server/runmonitor')
 		new RunMonitor(args)
 	}

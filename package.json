@@ -1,0 +1,19 @@
+{
+  "name": "dreemgl",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "typings": "typings",
+    "postinstall": ""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-help": "1.6.1",
+    "typescript": "^2.0.10",
+    "typings": "1.4.0"
+  }
+}
