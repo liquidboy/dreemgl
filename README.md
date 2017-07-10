@@ -14,9 +14,16 @@ An overview of the DreemGL's architecture is:
 ## Getting Started with DreemGL
 The fastest way to get started with DreemGL is to walk through [DreemGL in 10 Minutes](http://docs.dreemproject.org/docs/api/index.html#!/guide/dreem_in_10_part1).
 
-Once you have downloaded the source from the [master branch of dreemproject in Github](https://github.com/dreemproject/dreemgl), you can start DreemGL by typing: 
+Once you have downloaded the source from the [master branch of dreemproject in Github](https://github.com/dreemproject/dreemgl), 
+
+you can build all the JS files by compiling the TS files
+
+```gulp compile```
+
+once the JS files are generated you can start DreemGL by typing: 
 
 ```node server.js```
+
 
 To test if everything is working fine, open the following URL for the treeart2.js composition in a supported browser: [http://localhost:2000/examples/treeart2](http://localhost:2000/examples/treeart2). You should be seeing an animated tree with some nice shader effects.
 
