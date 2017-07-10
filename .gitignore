@@ -16,3 +16,4 @@ compositions/flowtest1/index.js
 
 /.vs/*
 *.js.map
+*.js
