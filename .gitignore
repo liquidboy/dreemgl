@@ -15,3 +15,4 @@ compositions/flowtest1/index.js
 .iotdb
 
 /.vs/*
+*.js.map

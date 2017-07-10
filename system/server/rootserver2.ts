@@ -1,3 +1,0 @@
-class rootserver2 {
-
-}
